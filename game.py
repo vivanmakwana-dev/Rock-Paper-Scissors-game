@@ -13,6 +13,10 @@ win = ["You won... huh by luck" ,
        "You only won because you cheated" ,
        "Your win is as legitimate as a three-dollar bill",       
        "You won... somehow"]
+
+player_score = 0
+computer_score = 0 
+
 while True:
     player = input("Choose rock, paper, or scissors: ").lower()
     if player not in options:
@@ -28,9 +32,14 @@ while True:
          (player == "paper" and computer == "rock") or \
          (player == "scissors" and computer == "paper"):
         print(random.choice(win))
+        player_score += 1 
     else:
         print(random.choice(lose))
+        computer_score += 1
+
+    print(f"Score -> You: {player_score} | Computer: {computer_score}")
 
     play_again = input(" You brat wanna Play again? (yeah/nahh): ").lower()
     if play_again != "yeah":
-        break
+            print(f"Final Score -> You: {player_score} | Computer: {computer_score}")
+            break
